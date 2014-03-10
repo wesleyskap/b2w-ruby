@@ -5,7 +5,7 @@ require 'b2w/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "b2w"
-  spec.version       = B2w::VERSION
+  spec.version       = B2W::VERSION
   spec.authors       = ["Diego Carrion"]
   spec.email         = ["dc.rec1@gmail.com"]
   spec.summary       = %q{TODO: Write a short summary. Required.}
