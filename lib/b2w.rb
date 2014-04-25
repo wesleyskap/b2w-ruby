@@ -11,7 +11,6 @@ module B2W
   private
 
   def self.get(resource, params)
-    puts "#{endpoint}/#{resource}?#{to_params(params)}"
     JSON.parse(RestClient::Request.execute(method: :get, url: "#{endpoint}/#{resource}?#{to_params(params)}", user: token, password: token))["#{resource}s"]
   end
 
