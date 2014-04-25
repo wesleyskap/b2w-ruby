@@ -10,8 +10,8 @@ module B2W
 
   private
 
-  def self.get(resource)
-    JSON.parse(RestClient::Request.execute(method: :get, url: "#{endpoint}/#{resource}", user: token, password: token))["#{resource}s"]
+  def self.get(resource, params)
+    JSON.parse(RestClient::Request.execute(method: :get, url: "#{endpoint}/#{resource}?#{to_params(params)}", user: token, password: token))["#{resource}s"]
   end
 
   def self.endpoint
@@ -24,5 +24,9 @@ module B2W
 
   def self.version
     @config[:sandbox] ? "sandbox" : "v1"
+  end
+
+  def self.to_params(params)
+    params.map { |key, value| "#{key}=#{value}" }.join
   end
 end

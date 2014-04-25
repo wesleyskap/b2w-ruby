@@ -8,4 +8,14 @@ describe B2W::Order do
       end
     end
   end
+
+  describe ".approved" do
+    it "returns the approved orders details" do
+      RestClient::Request.should_receive(:execute) do |params|
+        params[:url].should include("status=APPROVED")
+        "{}"
+      end
+      B2W::Order.approved
+    end
+  end
 end
