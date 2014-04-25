@@ -4,8 +4,8 @@ module B2W
       B2W.get(:order, params)
     end
 
-    def self.approved
-      all(status: 'APPROVED')
+    def self.approved(params = {})
+      all({ status: 'APPROVED' }.merge(params))
     end
   end
 end

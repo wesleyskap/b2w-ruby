@@ -17,5 +17,13 @@ describe B2W::Order do
       end
       B2W::Order.approved
     end
+
+    it "accepts the purchase date" do
+      RestClient::Request.should_receive(:execute) do |params|
+        params[:url].should include("purchaseDate=2014-03-12")
+        "{}"
+      end
+      B2W::Order.approved(purchase_date: '2014-03-12')
+    end
   end
 end

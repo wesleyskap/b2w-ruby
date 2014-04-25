@@ -11,6 +11,7 @@ module B2W
   private
 
   def self.get(resource, params)
+    puts "#{endpoint}/#{resource}?#{to_params(params)}"
     JSON.parse(RestClient::Request.execute(method: :get, url: "#{endpoint}/#{resource}?#{to_params(params)}", user: token, password: token))["#{resource}s"]
   end
 
@@ -27,6 +28,10 @@ module B2W
   end
 
   def self.to_params(params)
-    params.map { |key, value| "#{key}=#{value}" }.join
+    params.map { |key, value| "#{camel_case(key)}=#{value}" }.join "&"
+  end
+
+  def self.camel_case(key)
+    key.to_s.gsub(/_\w/) { $&.upcase }.gsub(/_/, '')
   end
 end
