@@ -35,7 +35,7 @@ describe B2W::Order do
         params[:headers][:content_type].should == 'application/json'
         params[:payload].should == '{"status": "PROCESSING"}'
         params[:url].should == "https://api-marketplace.submarino.com.br/sandbox/order/67/status"
-        "{}"
+        ""
       end
       orders.first.processing!
     end

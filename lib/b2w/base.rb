@@ -9,7 +9,7 @@ module B2W
     end
 
     def self.get(resource, params)
-      execute(:get, "#{endpoint}/#{resource}?#{to_params(params)}")["#{resource}s"].map { |params| new params }
+      JSON.parse(execute(:get, "#{endpoint}/#{resource}?#{to_params(params)}"))["#{resource}s"].map { |params| new params }
     end
 
     def put(resource, path, payload)
@@ -17,7 +17,7 @@ module B2W
     end
 
     def self.execute(method, url, params = {})
-      JSON.parse(RestClient::Request.execute({ method: method, url: url, user: token, password: token }.merge(params)))
+      RestClient::Request.execute({ method: method, url: url, user: token, password: token }.merge(params))
     end
 
     def self.endpoint
