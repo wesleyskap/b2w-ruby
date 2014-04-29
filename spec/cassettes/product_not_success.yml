@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://A01D5EA1EE4A33E02C02939F4B0E15D3:A01D5EA1EE4A33E02C02939F4B0E15D3@api-marketplace.submarino.com.br/sandbox/product
+    body:
+      encoding: UTF-8
+      string: "{\"id\":\"b2w-ruby-2\",\"name\":\"B2W Ruby\",\"sku\":[{\"id\":\"b2w-ruby-2\",\"name\":\"B2W
+        Ruby\",\"ean\":[\"invalid\"],\"weight\":1,\"stockQuantity\":3,\"enable\":true,\"price\":{\"sellPrice\":10,\"listPrice\":10}}],\"manufacturer\":{\"name\":\"Digital
+        Pages\",\"model\":\"b2w-ruby\",\"warrantyTime\":1},\"deliveryType\":\"SHIPMENT\",\"nbm\":{\"number\":\"49019900\",\"origin\":\"1\"}}"
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '327'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Access-Control-Realm:
+      - external
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '237'
+      Date:
+      - Tue, 29 Apr 2014 19:03:37 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: "{\"httpStatusCode\":422,\"message\":\"Nao foi possivel processar as
+        instrucoes contidas na requisicao\",\"validationErrors\":[{\"fieldName\":\"sku[0].ean\",\"restrictionType\":\"INVALID\",\"message\":\"field
+        should be a number with size 13. Ean:invalid\"}]}"
+    http_version: 
+  recorded_at: Tue, 29 Apr 2014 19:03:37 GMT
+recorded_with: VCR 2.8.0

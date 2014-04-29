@@ -8,16 +8,28 @@ module B2W
       @data = data
     end
 
+    def persisted?
+      self[:persisted]
+    end
+
     def self.get(resource, params)
       JSON.parse(execute(:get, "#{endpoint}/#{resource}?#{to_params(params)}"))["#{resource}s"].map { |params| new params }
     end
 
-    def put(resource, path, payload)
-      self.class.execute(:put, "#{self.class.endpoint}/#{resource}/#{path}", payload: payload, headers: { content_type: 'application/json' })
+    def self.post(resource, payload, &block)
+      execute(:post, "#{endpoint}/#{resource}", body: payload, &block)
     end
 
-    def self.execute(method, url, params = {})
-      RestClient::Request.execute({ method: method, url: url, user: token, password: token }.merge(params))
+    def put(resource, path, payload)
+      self.class.execute(:put, "#{self.class.endpoint}/#{resource}/#{path}", body: payload)
+    end
+
+    def self.execute(method, url, params = {}, &block)
+      if params[:body]
+        params[:headers] = { content_type: 'application/json' }
+        params[:payload] = JSON.generate params[:body]
+      end
+      RestClient::Request.execute({ method: method, url: url, user: token, password: token }.merge(params), &block)
     end
 
     def self.endpoint

@@ -9,7 +9,7 @@ module B2W
     end
 
     def processing!
-      put(:order, "#{self['id']}/status", JSON.generate(status: 'PROCESSING'))
+      put(:order, "#{self['id']}/status", status: 'PROCESSING')
     end
   end
 end
