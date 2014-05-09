@@ -16,4 +16,17 @@ describe B2W::Product do
       product.should_not be_persisted
     end
   end
+
+  describe "#update_price!" do
+    it "should update the prices" do
+      RestClient::Request.should_receive(:execute) do |params|
+        params[:method].should == :put
+        params[:headers][:content_type].should == 'application/json'
+        params[:payload].should == '{"sellPrice":11.14,"listPrice":12.34}'
+        params[:url].should == "https://api-marketplace.submarino.com.br/sandbox/sku/b2w-ruby-1/price"
+        ""
+      end
+      B2W::Product.new('sku' => 'b2w-ruby-1', 'sell_price' => 11.14, 'list_price' => 12.34).update_price!
+    end
+  end
 end
