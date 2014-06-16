@@ -7,7 +7,22 @@ module B2W
     end
 
     def update_price!
-      put(:sku, "#{self['sku']}/price", sellPrice: self['sell_price'], listPrice: self['list_price'])
+      put(:sku, "#{sku}/price", sellPrice: self['sell_price'], listPrice: self['list_price'])
+    end
+
+    def exists?
+      begin
+        self.class.get "sku/#{sku}"
+        true
+      rescue RestClient::ResourceNotFound 
+        false
+      end
+    end
+
+    private
+
+    def sku
+      self['sku']
     end
   end
 end

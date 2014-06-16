@@ -29,4 +29,18 @@ describe B2W::Product do
       B2W::Product.new('sku' => 'b2w-ruby-1', 'sell_price' => 11.14, 'list_price' => 12.34).update_price!
     end
   end
+
+  describe "#exists?" do
+    it "should return true if the sku exists" do
+      VCR.use_cassette('product_exists_true') do
+        B2W::Product.new('sku' => 'b2w-ruby-1').exists?.should be_true
+      end
+    end
+
+    it "should return false if the sku doesnt exists" do
+      VCR.use_cassette('product_exists_false') do
+        B2W::Product.new('sku' => '0123').exists?.should be_false
+      end
+    end
+  end
 end

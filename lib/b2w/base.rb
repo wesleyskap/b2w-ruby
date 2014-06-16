@@ -12,8 +12,8 @@ module B2W
       self[:persisted]
     end
 
-    def self.get(resource, params)
-      JSON.parse(execute(:get, "#{endpoint}/#{resource}?#{to_params(params)}"))["#{resource}s"].map { |params| new params }
+    def self.get(resource, params = {})
+      JSON.parse(execute(:get, "#{endpoint}/#{resource}?#{to_params(params)}"))
     end
 
     def self.post(resource, payload, &block)

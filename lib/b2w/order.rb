@@ -1,7 +1,7 @@
 module B2W
   class Order < Base
     def self.all(params = {})
-      get(:order, params)
+      get(:order, params)["orders"].map { |params| new params }
     end
 
     def self.approved(params = {})
