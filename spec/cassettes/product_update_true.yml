@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://A01D5EA1EE4A33E02C02939F4B0E15D3:A01D5EA1EE4A33E02C02939F4B0E15D3@api-marketplace.submarino.com.br/sandbox/product/b2w-ruby-1/sku
+    body:
+      encoding: UTF-8
+      string: "{\"id\":\"b2w-ruby-1\",\"name\":\"B2W Ruby\",\"ean\":[\"1234567890128\"],\"weight\":1,\"stockQuantity\":3,\"enable\":true,\"price\":{\"sellPrice\":10,\"listPrice\":10}}"
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '144'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Access-Control-Realm:
+      - external
+      Location:
+      - "/product/b2w-ruby-1/sku/b2w-ruby-1"
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '0'
+      Date:
+      - Mon, 16 Jun 2014 19:51:49 GMT
+      Connection:
+      - keep-alive
+      X-N:
+      - S
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 16 Jun 2014 19:51:49 GMT
+recorded_with: VCR 2.8.0

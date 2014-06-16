@@ -6,20 +6,28 @@ module B2W
       end
     end
 
+    def update!(params)
+      bool_operation { self.class.post "product/#{sku}/sku", params }
+    end
+
     def update_price!
       put(:sku, "#{sku}/price", sellPrice: self['sell_price'], listPrice: self['list_price'])
     end
 
     def exists?
-      begin
-        self.class.get "sku/#{sku}"
-        true
-      rescue RestClient::ResourceNotFound 
-        false
-      end
+      bool_operation { self.class.get "sku/#{sku}" }
     end
 
     private
+
+    def bool_operation
+      begin
+        yield
+        true
+      rescue RestClient::ResourceNotFound
+        false
+      end
+    end
 
     def sku
       self['sku']

@@ -17,6 +17,22 @@ describe B2W::Product do
     end
   end
 
+  describe "#update!" do
+    it "should update a valid product" do
+      product = B2W::Product.new 'sku' => 'b2w-ruby-1'
+      VCR.use_cassette('product_update_true') do
+        product.update!(id: 'b2w-ruby-1', name: 'B2W Ruby', ean: ['1234567890128'], weight: 1, stockQuantity: 3, enable: true, price: { sellPrice: 10, listPrice: 10 }).should be_true
+      end
+    end
+
+    it "should not update an invalid product" do
+      product = B2W::Product.new 'sku' => 'invalid'
+      VCR.use_cassette('product_update_false') do
+        product.update!(id: 'b2w-ruby-1', name: 'B2W Ruby', ean: ['1234567890128'], weight: 1, stockQuantity: 3, enable: true, price: { sellPrice: 10, listPrice: 10 }).should be_false
+      end
+    end
+  end
+
   describe "#update_price!" do
     it "should update the prices" do
       RestClient::Request.should_receive(:execute) do |params|
