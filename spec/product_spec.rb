@@ -39,7 +39,7 @@ describe B2W::Product do
         params[:method].should == :put
         params[:headers][:content_type].should == 'application/json'
         params[:payload].should == '{"sellPrice":11.14,"listPrice":12.34}'
-        params[:url].should == "https://api-marketplace.submarino.com.br/sandbox/sku/b2w-ruby-1/price"
+        params[:url].should == "https://api-marketplace.submarino.com.br/v1/sku/b2w-ruby-1/price"
         ""
       end
       B2W::Product.new('sku' => 'b2w-ruby-1', 'sell_price' => 11.14, 'list_price' => 12.34).update_price!
