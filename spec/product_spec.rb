@@ -46,6 +46,19 @@ describe B2W::Product do
     end
   end
 
+  describe "#update_stock!" do
+    it "should update the stock" do
+      RestClient::Request.should_receive(:execute) do |params|
+        params[:method].should == :put
+        params[:headers][:content_type].should == 'application/json'
+        params[:payload].should == '{"quantity":2}'
+        params[:url].should == "https://api-marketplace.submarino.com.br/v1/sku/b2w-ruby-1/stock"
+        ""
+      end
+      B2W::Product.new('sku' => 'b2w-ruby-1', 'quantity' => 2).update_stock!
+    end
+  end
+
   describe "#exists?" do
     it "should return true if the sku exists" do
       VCR.use_cassette('product_exists_true') do

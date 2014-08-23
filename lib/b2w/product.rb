@@ -14,6 +14,10 @@ module B2W
       put(:sku, "#{sku}/price", sellPrice: self['sell_price'], listPrice: self['list_price'])
     end
 
+    def update_stock!
+      put(:sku, "#{sku}/stock", quantity: self['quantity'])
+    end
+
     def exists?
       bool_operation { self.class.get "sku/#{sku}" }
     end
