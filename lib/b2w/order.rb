@@ -19,5 +19,9 @@ module B2W
     def shipped!(body)
       put(:order, "#{self['id']}/status", status: 'SHIPPED', shipped: body)
     end
+
+    def delivered!(body)
+      put(:order, "#{self['id']}/status", status: 'DELIVERED', delivered: body)
+    end
   end
 end

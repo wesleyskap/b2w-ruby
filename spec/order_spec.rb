@@ -82,4 +82,18 @@ describe B2W::Order do
       orders.first.shipped! trackingProtocol: "123", deliveredCarrierDate: "2013-12-31", estimatedDelivery: "2014-01-31"
     end
   end
+
+  describe "#delivered!" do
+    it "should update the order status as delivered" do
+      orders = VCR.use_cassette('orders') { B2W::Order.all }
+      expect(RestClient::Request).to receive(:execute) do |params|
+        expect(params[:method]).to eql :put
+        expect(params[:headers][:content_type]).to eql 'application/json'
+        expect(params[:payload]).to eql "{\"status\":\"DELIVERED\",\"delivered\":{\"deliveredCustomDate\":\"2014-01-31\"}}"
+        expect(params[:url]).to eql "https://api-marketplace.submarino.com.br/v1/order/67/status"
+        ""
+      end
+      orders.first.delivered! deliveredCustomDate: "2014-01-31"
+    end
+  end
 end
