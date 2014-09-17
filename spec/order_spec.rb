@@ -40,4 +40,32 @@ describe B2W::Order do
       orders.first.processing!
     end
   end
+
+  describe "#processing!" do
+    it "should update the order status as processing" do
+      orders = VCR.use_cassette('orders') { B2W::Order.all }
+      RestClient::Request.should_receive(:execute) do |params|
+        params[:method].should == :put
+        params[:headers][:content_type].should == 'application/json'
+        params[:payload].should == '{"status":"PROCESSING"}'
+        params[:url].should == "https://api-marketplace.submarino.com.br/v1/order/67/status"
+        ""
+      end
+      orders.first.processing!
+    end
+  end
+
+  describe "#invoiced!" do
+    it "should update the order status as invoiced" do
+      orders = VCR.use_cassette('orders') { B2W::Order.all }
+      RestClient::Request.should_receive(:execute) do |params|
+        params[:method].should == :put
+        params[:headers][:content_type].should == 'application/json'
+        params[:payload].should == "{\"status\":\"PROCESSING\",\"invoiced\":{\"key\":\"123\",\"number\":\"456\",\"line\":\"789\",\"issueDate\":\"2014-01-31\"}}"
+        params[:url].should == "https://api-marketplace.submarino.com.br/v1/order/67/status"
+        ""
+      end
+      orders.first.invoiced! key: "123", number: "456", line: "789", issueDate: "2014-01-31"
+    end
+  end
 end

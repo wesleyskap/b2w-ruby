@@ -11,5 +11,9 @@ module B2W
     def processing!
       put(:order, "#{self['id']}/status", status: 'PROCESSING')
     end
+
+    def invoiced!(body)
+      put(:order, "#{self['id']}/status", status: 'PROCESSING', invoiced: body)
+    end
   end
 end
