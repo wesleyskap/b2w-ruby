@@ -12,16 +12,10 @@ module B2W
       put(:order, "#{self['id']}/status", status: 'PROCESSING')
     end
 
-    def invoiced!(body)
-      put(:order, "#{self['id']}/status", status: 'INVOICED', invoiced: body)
-    end
-
-    def shipped!(body)
-      put(:order, "#{self['id']}/status", status: 'SHIPPED', shipped: body)
-    end
-
-    def delivered!(body)
-      put(:order, "#{self['id']}/status", status: 'DELIVERED', delivered: body)
+    %w(invoiced shipped delivered).each do |status|
+      define_method "#{status}!" do |body|
+        put(:order, "#{self['id']}/status", status: status.upcase, status => body)
+      end
     end
   end
 end
