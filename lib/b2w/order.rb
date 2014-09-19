@@ -13,7 +13,7 @@ module B2W
     end
 
     def invoiced!(body)
-      put(:order, "#{self['id']}/status", status: 'PROCESSING', invoiced: body)
+      put(:order, "#{self['id']}/status", status: 'INVOICED', invoiced: body)
     end
 
     def shipped!(body)

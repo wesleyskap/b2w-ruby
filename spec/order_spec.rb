@@ -60,7 +60,7 @@ describe B2W::Order do
       expect(RestClient::Request).to receive(:execute) do |params|
         expect(params[:method]).to eql :put
         expect(params[:headers][:content_type]).to eql 'application/json'
-        expect(params[:payload]).to eql "{\"status\":\"PROCESSING\",\"invoiced\":{\"key\":\"123\",\"number\":\"456\",\"line\":\"789\",\"issueDate\":\"2014-01-31\"}}"
+        expect(params[:payload]).to eql "{\"status\":\"INVOICED\",\"invoiced\":{\"key\":\"123\",\"number\":\"456\",\"line\":\"789\",\"issueDate\":\"2014-01-31\"}}"
         expect(params[:url]).to eql "https://api-marketplace.submarino.com.br/v1/order/67/status"
         ""
       end
