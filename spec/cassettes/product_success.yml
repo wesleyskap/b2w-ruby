@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://A01D5EA1EE4A33E02C02939F4B0E15D3:A01D5EA1EE4A33E02C02939F4B0E15D3@api-marketplace.submarino.com.br/v1/product
+    uri: https://A01D5EA1EE4A33E02C02939F4B0E15D3:A01D5EA1EE4A33E02C02939F4B0E15D3@api-marketplace.submarino.com.br/sandbox/product
     body:
       encoding: UTF-8
       string: "{\"id\":\"b2w-ruby-1\",\"name\":\"B2W Ruby\",\"sku\":[{\"id\":\"b2w-ruby-1\",\"name\":\"B2W

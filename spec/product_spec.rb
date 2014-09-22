@@ -39,7 +39,7 @@ describe B2W::Product do
         expect(params[:method]).to eql :put
         expect(params[:headers][:content_type]).to eql 'application/json'
         expect(params[:payload]).to eql '{"sellPrice":11.14,"listPrice":12.34}'
-        expect(params[:url]).to eql "https://api-marketplace.submarino.com.br/v1/sku/b2w-ruby-1/price"
+        expect(params[:url]).to eql "https://api-marketplace.submarino.com.br/sandbox/sku/b2w-ruby-1/price"
         ""
       end
       B2W::Product.new('sku' => 'b2w-ruby-1', 'sell_price' => 11.14, 'list_price' => 12.34).update_price!
@@ -52,7 +52,7 @@ describe B2W::Product do
         expect(params[:method]).to eql :put
         expect(params[:headers][:content_type]).to eql 'application/json'
         expect(params[:payload]).to eql '{"quantity":2}'
-        expect(params[:url]).to eql "https://api-marketplace.submarino.com.br/v1/sku/b2w-ruby-1/stock"
+        expect(params[:url]).to eql "https://api-marketplace.submarino.com.br/sandbox/sku/b2w-ruby-1/stock"
         ""
       end
       B2W::Product.new('sku' => 'b2w-ruby-1', 'quantity' => 2).update_stock!
