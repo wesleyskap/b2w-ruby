@@ -4,6 +4,10 @@ module B2W
       get(:order, params)["orders"].map { |params| new params }
     end
 
+    def self.find(id)
+      get("order/#{id}")
+    end
+
     def self.approved(params = {})
       all({ status: 'APPROVED' }.merge(params))
     end

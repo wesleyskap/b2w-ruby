@@ -1,6 +1,14 @@
 require 'spec_helper'
 
 describe B2W::Order do
+  describe ".find" do
+    it 'returns the order details' do
+      VCR.use_cassette('order') do
+        expect(B2W::Order.find(67)["status"]).to eql "PROCESSING"
+      end
+    end  
+  end
+
   describe ".all" do
     it "returns the orders details" do
       VCR.use_cassette('orders') do
