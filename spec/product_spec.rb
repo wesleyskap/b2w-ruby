@@ -37,7 +37,7 @@ describe B2W::Product do
     it "should update the prices" do
       expect(RestClient::Request).to receive(:execute) do |params|
         expect(params[:method]).to eql :put
-        expect(params[:headers][:content_type]).to eql 'application/json'
+        expect(params[:headers][:content_type]).to eql 'application/json;charset=UTF-8'
         expect(params[:payload]).to eql '{"sellPrice":11.14,"listPrice":12.34}'
         expect(params[:url]).to eql "https://api-marketplace.submarino.com.br/sandbox/sku/b2w-ruby-1/price"
         ""
@@ -50,7 +50,7 @@ describe B2W::Product do
     it "should update the stock" do
       expect(RestClient::Request).to receive(:execute) do |params|
         expect(params[:method]).to eql :put
-        expect(params[:headers][:content_type]).to eql 'application/json'
+        expect(params[:headers][:content_type]).to eql 'application/json;charset=UTF-8'
         expect(params[:payload]).to eql '{"quantity":2}'
         expect(params[:url]).to eql "https://api-marketplace.submarino.com.br/sandbox/sku/b2w-ruby-1/stock"
         ""

@@ -29,7 +29,7 @@ http_interactions:
       Location:
       - "/product/b2w-ruby-1/sku/b2w-ruby-1"
       Content-Type:
-      - application/json;charset=utf-8
+      - application/json;charset=UTF-8
       Content-Length:
       - '0'
       Date:
