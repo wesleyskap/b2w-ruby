@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://A01D5EA1EE4A33E02C02939F4B0E15D3:A01D5EA1EE4A33E02C02939F4B0E15D3@api-marketplace.submarino.com.br/sandbox/order
+    uri: https://A01D5EA1EE4A33E02C02939F4B0E15D3:A01D5EA1EE4A33E02C02939F4B0E15D3@api-sandbox.bonmarketplace.com.br/order
     body:
       encoding: US-ASCII
       string: ''
@@ -19,26 +19,26 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - Apache-Coyote/1.1
-      X-Access-Control-Realm:
-      - external
-      Content-Type:
-      - application/json;charset=UTF-8
-      Content-Length:
-      - '1976'
+      - nginx/1.7.5
       Date:
-      - Fri, 25 Apr 2014 17:03:00 GMT
+      - Mon, 20 Apr 2015 16:17:39 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
+      X-Access-Control-Realm:
+      - external
     body:
       encoding: UTF-8
-      string: "{\"orders\":[{\"id\":\"67\",\"siteId\":\"03-67-01\",\"purchaseDate\":\"2014-03-11\",\"lastUpdate\":\"2014-03-11\",\"status\":\"APPROVED\",\"estimatedDeliveryDate\":\"2014-03-25\",\"customer\":{\"pf\":{\"cpf\":\"11111111111\",\"name\":\"Cliente
-        de Teste SandBox11111111111\"},\"deliveryAddress\":{\"street\":\"Rua de teste
-        sandbox\",\"number\":123,\"reference\":\"Referencia de teste sandbox\",\"neighborhood\":\"Bairro
-        de Teste sandbox\",\"city\":\"RIO DE JANEIRO\",\"state\":\"RJ\",\"zipcode\":20081902},\"telephones\":{\"main\":{\"ddd\":\"21\",\"number\":\"23456789\"},\"secondary\":{\"ddd\":\"21\",\"number\":\"23456788\"},\"business\":{\"ddd\":\"21\",\"number\":\"23456787\"}}},\"totalAmount\":24.66,\"totalFreight\":24.0,\"totalDiscount\":0.0,\"products\":[{\"link\":{\"id\":\"ITEM213\",\"rel\":\"sku\",\"href\":\"https://api-marketplace.submarino.com.br/sandbox/sku/ITEM213\"},\"quantity\":1,\"price\":0.33,\"freight\":12.0,\"discount\":0.0},{\"link\":{\"id\":\"ITEM214\",\"rel\":\"sku\",\"href\":\"https://api-marketplace.submarino.com.br/sandbox/sku/ITEM214\"},\"quantity\":1,\"price\":0.33,\"freight\":12.0,\"discount\":0.0}]},{\"id\":\"68\",\"siteId\":\"03-68-01\",\"purchaseDate\":\"2014-03-11\",\"lastUpdate\":\"2014-03-11\",\"status\":\"APPROVED\",\"estimatedDeliveryDate\":\"2014-03-25\",\"customer\":{\"pf\":{\"cpf\":\"11111111111\",\"name\":\"Cliente
-        de Teste SandBox11111111111\"},\"deliveryAddress\":{\"street\":\"Rua de teste
-        sandbox\",\"number\":123,\"reference\":\"Referencia de teste sandbox\",\"neighborhood\":\"Bairro
-        de Teste sandbox\",\"city\":\"RIO DE JANEIRO\",\"state\":\"RJ\",\"zipcode\":20081902},\"telephones\":{\"main\":{\"ddd\":\"21\",\"number\":\"23456789\"},\"secondary\":{\"ddd\":\"21\",\"number\":\"23456788\"},\"business\":{\"ddd\":\"21\",\"number\":\"23456787\"}}},\"totalAmount\":24.66,\"totalFreight\":24.0,\"totalDiscount\":0.0,\"products\":[{\"link\":{\"id\":\"ITEM213\",\"rel\":\"sku\",\"href\":\"https://api-marketplace.submarino.com.br/sandbox/sku/ITEM213\"},\"quantity\":1,\"price\":0.33,\"freight\":12.0,\"discount\":0.0},{\"link\":{\"id\":\"ITEM214\",\"rel\":\"sku\",\"href\":\"https://api-marketplace.submarino.com.br/sandbox/sku/ITEM214\"},\"quantity\":1,\"price\":0.33,\"freight\":12.0,\"discount\":0.0}]}],\"total\":2}"
+      string: '{"orders":[{"id":"67","siteId":"03-67-01","store":"SUBMARINO","purchaseDate":"2014-03-11","lastUpdate":"2014-04-28","status":"PROCESSING","invoiced":{"issueDate":"2014-04-28"},"estimatedDeliveryDate":"2014-03-25","customer":{"pf":{"cpf":"11111111111","name":"Cliente
+        de Teste SandBox11111111111"},"deliveryAddress":{"street":"Rua de teste sandbox","number":"123","additionalInfo":"Complemento
+        de teste sandbox","reference":"Referencia de teste sandbox","neighborhood":"Bairro
+        de Teste sandbox","city":"RIO DE JANEIRO","state":"RJ","zipcode":"20081902"},"telephones":{"main":{"ddd":"21","number":"23456789"},"secondary":{"ddd":"21","number":"23456788"},"business":{"ddd":"21","number":"23456787"}}},"totalAmount":24.66,"totalFreight":24.0,"totalDiscount":0.0,"products":[{"link":{"id":"ITEM213","rel":"sku","href":"https://api-sandbox.bonmarketplace.com.br/sku/ITEM213"},"quantity":1,"price":0.33,"freight":12.0,"discount":0.0},{"link":{"id":"ITEM214","rel":"sku","href":"https://api-sandbox.bonmarketplace.com.br/sku/ITEM214"},"quantity":1,"price":0.33,"freight":12.0,"discount":0.0}]},{"id":"68","siteId":"03-68-01","store":"SUBMARINO","purchaseDate":"2014-03-11","lastUpdate":"2014-04-28","status":"PROCESSING","invoiced":{"issueDate":"2014-04-28"},"estimatedDeliveryDate":"2014-03-25","customer":{"pf":{"cpf":"11111111111","name":"Cliente
+        de Teste SandBox11111111111"},"deliveryAddress":{"street":"Rua de teste sandbox","number":"123","additionalInfo":"Complemento
+        de teste sandbox","reference":"Referencia de teste sandbox","neighborhood":"Bairro
+        de Teste sandbox","city":"RIO DE JANEIRO","state":"RJ","zipcode":"20081902"},"telephones":{"main":{"ddd":"21","number":"23456789"},"secondary":{"ddd":"21","number":"23456788"},"business":{"ddd":"21","number":"23456787"}}},"totalAmount":24.66,"totalFreight":24.0,"totalDiscount":0.0,"products":[{"link":{"id":"ITEM213","rel":"sku","href":"https://api-sandbox.bonmarketplace.com.br/sku/ITEM213"},"quantity":1,"price":0.33,"freight":12.0,"discount":0.0},{"link":{"id":"ITEM214","rel":"sku","href":"https://api-sandbox.bonmarketplace.com.br/sku/ITEM214"},"quantity":1,"price":0.33,"freight":12.0,"discount":0.0}]}],"total":2}'
     http_version: 
-  recorded_at: Fri, 25 Apr 2014 17:03:00 GMT
-recorded_with: VCR 2.8.0
+  recorded_at: Mon, 20 Apr 2015 16:19:06 GMT
+recorded_with: VCR 2.9.3

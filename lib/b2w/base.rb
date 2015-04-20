@@ -33,7 +33,7 @@ module B2W
     end
 
     def self.endpoint
-      "https://api-marketplace.submarino.com.br/#{version}"
+      "https://#{version}.bonmarketplace.com.br"
     end
 
     def self.token
@@ -41,7 +41,7 @@ module B2W
     end
 
     def self.version
-      B2W.config[:sandbox] ? "sandbox" : "v1"
+      B2W.config[:sandbox] ? "api-sandbox" : "api-marketplace"
     end
 
     def self.to_params(params)

@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe B2W::Order do
+
+  before { @sandbox_endpoint = B2W.config[:endpoint] }
+
   describe ".find" do
     it 'returns the order details' do
       VCR.use_cassette('order') do
@@ -42,7 +45,7 @@ describe B2W::Order do
         expect(params[:method]).to eql :put
         expect(params[:headers][:content_type]).to eql 'application/json;charset=UTF-8'
         expect(params[:payload]).to eql '{"status":"PROCESSING"}'
-        expect(params[:url]).to eql "https://api-marketplace.submarino.com.br/sandbox/order/67/status"
+        expect(params[:url]).to eql "#{@sandbox_endpoint}/order/67/status"
         ""
       end
       orders.first.processing!
@@ -56,7 +59,7 @@ describe B2W::Order do
         expect(params[:method]).to eql :put
         expect(params[:headers][:content_type]).to eql 'application/json;charset=UTF-8'
         expect(params[:payload]).to eql '{"status":"PROCESSING"}'
-        expect(params[:url]).to eql "https://api-marketplace.submarino.com.br/sandbox/order/67/status"
+        expect(params[:url]).to eql "#{@sandbox_endpoint}/order/67/status"
         ""
       end
       orders.first.processing!
@@ -69,7 +72,7 @@ describe B2W::Order do
         expect(params[:method]).to eql :put
         expect(params[:headers][:content_type]).to eql 'application/json;charset=UTF-8'
         expect(params[:payload]).to eql "{\"status\":\"INVOICED\",\"invoiced\":{\"key\":\"123\",\"number\":\"456\",\"line\":\"789\",\"issueDate\":\"2014-01-31\"}}"
-        expect(params[:url]).to eql "https://api-marketplace.submarino.com.br/sandbox/order/67/status"
+        expect(params[:url]).to eql "#{@sandbox_endpoint}/order/67/status"
         ""
       end
       B2W::Order.new('id' => 67).invoiced! key: "123", number: "456", line: "789", issueDate: "2014-01-31"
@@ -82,7 +85,7 @@ describe B2W::Order do
         expect(params[:method]).to eql :put
         expect(params[:headers][:content_type]).to eql 'application/json;charset=UTF-8'
         expect(params[:payload]).to eql "{\"status\":\"SHIPPED\",\"shipped\":{\"trackingProtocol\":\"123\",\"deliveredCarrierDate\":\"2013-12-31\",\"estimatedDelivery\":\"2014-01-31\"}}"
-        expect(params[:url]).to eql "https://api-marketplace.submarino.com.br/sandbox/order/67/status"
+        expect(params[:url]).to eql "#{@sandbox_endpoint}/order/67/status"
         ""
       end
       B2W::Order.new('id' => 67).shipped! trackingProtocol: "123", deliveredCarrierDate: "2013-12-31", estimatedDelivery: "2014-01-31"
@@ -95,7 +98,7 @@ describe B2W::Order do
         expect(params[:method]).to eql :put
         expect(params[:headers][:content_type]).to eql 'application/json;charset=UTF-8'
         expect(params[:payload]).to eql "{\"status\":\"DELIVERED\",\"delivered\":{\"deliveredCustomDate\":\"2014-01-31\"}}"
-        expect(params[:url]).to eql "https://api-marketplace.submarino.com.br/sandbox/order/67/status"
+        expect(params[:url]).to eql "#{@sandbox_endpoint}/order/67/status"
         ""
       end
       B2W::Order.new('id' => 67).delivered! deliveredCustomDate: "2014-01-31"

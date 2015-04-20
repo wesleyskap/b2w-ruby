@@ -30,6 +30,8 @@ module B2W
         true
       rescue RestClient::ResourceNotFound
         false
+      rescue RestClient::UnprocessableEntity
+        false
       end
     end
 

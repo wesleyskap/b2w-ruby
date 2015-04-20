@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://A01D5EA1EE4A33E02C02939F4B0E15D3:A01D5EA1EE4A33E02C02939F4B0E15D3@api-marketplace.submarino.com.br/sandbox/sku/0123
+    uri: https://A01D5EA1EE4A33E02C02939F4B0E15D3:A01D5EA1EE4A33E02C02939F4B0E15D3@api-sandbox.bonmarketplace.com.br/sku/0123
     body:
       encoding: US-ASCII
       string: ''
@@ -19,20 +19,20 @@ http_interactions:
       message: Not Found
     headers:
       Server:
-      - Apache-Coyote/1.1
-      X-Access-Control-Realm:
-      - external
+      - nginx/1.7.5
+      Date:
+      - Mon, 20 Apr 2015 16:17:41 GMT
       Content-Type:
-      - application/json;charset=UTF-8
+      - application/json;charset=utf-8
       Content-Length:
       - '57'
-      Date:
-      - Mon, 16 Jun 2014 19:23:52 GMT
       Connection:
       - keep-alive
+      X-Access-Control-Realm:
+      - external
     body:
       encoding: UTF-8
-      string: "{\"httpStatusCode\":404,\"message\":\"SkuId:[0123] not found\"}"
+      string: '{"httpStatusCode":404,"message":"SkuId:[0123] not found"}'
     http_version: 
-  recorded_at: Mon, 16 Jun 2014 19:23:52 GMT
-recorded_with: VCR 2.8.0
+  recorded_at: Mon, 20 Apr 2015 16:19:07 GMT
+recorded_with: VCR 2.9.3
