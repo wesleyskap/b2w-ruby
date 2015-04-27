@@ -2,14 +2,14 @@ require 'spec_helper'
 
 describe B2W::Order do
 
-  before { @sandbox_endpoint = B2W.config[:endpoint] }
+  before { @sandbox_endpoint = 'https://api-sandbox.bonmarketplace.com.br' }
 
   describe ".find" do
     it 'returns the order details' do
       VCR.use_cassette('order') do
         expect(B2W::Order.find(67)["status"]).to eql "PROCESSING"
       end
-    end  
+    end
   end
 
   describe ".all" do

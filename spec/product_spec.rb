@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe B2W::Product do
 
-  before { @sandbox_endpoint = B2W.config[:endpoint] }
+  before { @sandbox_endpoint = 'https://api-sandbox.bonmarketplace.com.br' }
 
   describe ".create!" do
     it "should persist a valid product" do
