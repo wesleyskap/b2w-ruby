@@ -29,7 +29,7 @@ module B2W
         params[:headers] = { content_type: 'application/json;charset=UTF-8' }
         params[:payload] = JSON.generate params[:body]
       end
-      RestClient::Request.execute({ method: method, url: url, user: token, password: token }.merge(params), &block)
+      RestClient::Request.execute({ method: method, url: url, user: token }.merge(params), &block)
     end
 
     def self.endpoint

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://A01D5EA1EE4A33E02C02939F4B0E15D3:A01D5EA1EE4A33E02C02939F4B0E15D3@api-sandbox.bonmarketplace.com.br/sku/0123
+    uri: https://A01D5EA1EE4A33E02C02939F4B0E15D3:@api-sandbox.bonmarketplace.com.br/sku/0123
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - nginx/1.7.5
       Date:
-      - Mon, 20 Apr 2015 16:17:41 GMT
+      - Mon, 27 Apr 2015 13:43:48 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -34,5 +34,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"httpStatusCode":404,"message":"SkuId:[0123] not found"}'
     http_version: 
-  recorded_at: Mon, 20 Apr 2015 16:19:07 GMT
+  recorded_at: Mon, 27 Apr 2015 13:45:35 GMT
 recorded_with: VCR 2.9.3

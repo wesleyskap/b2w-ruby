@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://A01D5EA1EE4A33E02C02939F4B0E15D3:A01D5EA1EE4A33E02C02939F4B0E15D3@api-sandbox.bonmarketplace.com.br/sku/b2w-ruby-1
+    uri: https://A01D5EA1EE4A33E02C02939F4B0E15D3:@api-sandbox.bonmarketplace.com.br/sku/b2w-ruby-1
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - nginx/1.7.5
       Date:
-      - Mon, 20 Apr 2015 16:17:40 GMT
+      - Mon, 27 Apr 2015 13:43:48 GMT
       Content-Type:
       - application/json;charset=utf-8
       Transfer-Encoding:
@@ -34,5 +34,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"id":"b2w-ruby-1","name":"B2W Ruby","ean":["1234567890128"],"height":1.0,"width":0.003333,"length":1.0,"weight":1.0,"stockQuantity":3,"enable":true,"price":{"listPrice":10.0,"sellPrice":10.0},"marketStructure":{"categoryId":9999,"subCategoryId":9999,"familyId":9999,"subFamilyId":9999},"crossDocking":0,"link":{"id":"b2w-ruby-1","rel":"product","href":"https://api-sandbox.bonmarketplace.com.br/product/b2w-ruby-1"}}'
     http_version: 
-  recorded_at: Mon, 20 Apr 2015 16:19:07 GMT
+  recorded_at: Mon, 27 Apr 2015 13:45:35 GMT
 recorded_with: VCR 2.9.3
