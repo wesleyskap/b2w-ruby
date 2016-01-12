@@ -2,6 +2,7 @@ require 'rest-client'
 require "b2w/base"
 require "b2w/order"
 require "b2w/product"
+require "b2w/batch"
 require "b2w/version"
 require "json"
 
