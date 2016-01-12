@@ -8,8 +8,8 @@ module B2W
       get("order/#{id}")
     end
 
-    def self.approved(params = {})
-      all({ status: 'APPROVED' }.merge(params))
+    def self.orders(status, params = {})
+      all({ status: status }.merge(params))
     end
 
     def processing!
