@@ -4,6 +4,9 @@ module B2W
       post("#{path}/stock", params)
     end
 
+    def self.find(sku, type)
+      get("#{path}/#{type}/#{sku}")
+    end
     private
 
     def self.path
