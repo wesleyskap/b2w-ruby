@@ -20,13 +20,13 @@ describe B2W::Order do
     end
   end
 
-  describe ".approved" do
+  describe ".orders approved" do
     it "returns the approved orders details" do
       expect(RestClient::Request).to receive(:execute) do |params|
         expect(params[:url]).to include("status=APPROVED")
         '{"orders": []}'
       end
-      B2W::Order.approved
+      B2W::Order.orders('APPROVED', {})
     end
 
     it "accepts the purchase date" do
@@ -34,7 +34,7 @@ describe B2W::Order do
         expect(params[:url]).to include("purchaseDate=2014-03-12")
         '{"orders": []}'
       end
-      B2W::Order.approved(purchase_date: '2014-03-12')
+      B2W::Order.orders('APPROVED', {purchase_date: '2014-03-12'})
     end
   end
 
