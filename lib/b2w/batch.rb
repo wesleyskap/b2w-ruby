@@ -5,7 +5,7 @@ module B2W
     end
 
     def self.price(params)
-      post("#{path}/stock", params)
+      post("#{path}/price", params)
     end
 
     def self.find(sku, type)
