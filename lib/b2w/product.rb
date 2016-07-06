@@ -23,6 +23,10 @@ module B2W
       bool_operation { self.class.get "sku/#{sku}" }
     end
 
+    def cod_terc_exists?
+      bool_operation { self.class.get "product/#{id}" }
+    end
+
     private
 
     def bool_operation
@@ -38,6 +42,10 @@ module B2W
 
     def sku
       self['sku']
+    end
+
+    def id
+      self['id']
     end
   end
 end
