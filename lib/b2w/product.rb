@@ -27,6 +27,10 @@ module B2W
       bool_operation { self.class.get "product/#{id}" }
     end
 
+    def self.find(sku)
+      get "sku/#{sku}"
+    end
+
     private
 
     def bool_operation
